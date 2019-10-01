@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GG DB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+	<h1 class="text-center">GUILTY GEAR Combos Database</h1>
+
+	<div class="flex-container">
+		<div class="flex-item text-center">
+			<h3>RESET</h3>
+		</div>
+		<div class="flex-item text-center">
+			<h4><div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Regular link</a>
+					<a class="dropdown-item active" href="#">Active link</a>
+					<a class="dropdown-item" href="#">Another link</a>
+				  </div>CHARACTER CONTAINS(starter or not) SPACING TENSION CHAR SPECS</h4>
+		</div>
+		<div class="flex-item text-center">
+				<h3>SUBMIT A COMBO</h3>
+		</div>
+	</div>
+
+	{% for post in posts %}
+	<div class="container-fluid rounded flashcard">		
+		<div class="combo_tab" style="display: block">	
+			<div class="row">
+				<div class="col-md-2">
+					<img src="" alt="{{post.character}}" class="portrait {{post.character}}">
+				</div>
+				<div class="col-md-10 combo-col rounded" style="height: 82px;overflow-y: hidden;">
+					<h3 class="text-center combo" >
+						<p>{{post.combo}}</p>
+					</h3>
+				</div>
+			</div>
+			<div class="row details">
+				<div class="col-md-4">
+					<h4 class="text-left">
+						Tension: {{post.meter}}
+						<br>
+						{{post.resources}}
+					</h4>
+				</div>
+				<div class="col-md-4 stances">
+					{% if post.standing == 'true' %}
+						<img src="{{url_for('static', filename='img/standing.png')}}" alt="Card image" height="60" style="padding: 0rem;">			
+					{% else %}
+						<img src="{{url_for('static', filename='img/not_standing.png')}}" alt="Card image" height="60" style="padding: 0rem;">	
+					{% endif %}
+						{% if post.crouching == 'true' %}
+						<img src="{{url_for('static', filename='img/crouching.png')}}" alt="Card image" width="50" style="padding: 0rem;">			
+					{% else %}
+						<img src="{{url_for('static', filename='img/not_crouching.png')}}" alt="Card image" width="50" style="padding: 0rem;">	
+					{% endif %}
+						{% if post.jumping == 'true' %}
+						<img src="{{url_for('static', filename='img/jumping.png')}}" alt="Card image" height="60" style="padding: 0rem;">			
+					{% else %}
+						<img src="{{url_for('static', filename='img/not_jumping.png')}}" alt="Card image" height="60" style="padding: 0rem;">	
+					{% endif %}
+				</div>
+				<div class="col-md-4">
+					<h4 class="text-right">
+					{% if post.midscreen == 'true' and post.nearcorner == 'true' and post.corner == 'true' %}
+						ANYWHERE<br>
+					{% else %}
+						{% if post.midscreen == 'true' %}
+							Midscreen<br>
+						{% endif %}
+						{% if post.nearcorner == 'true' %}
+							Near corner<br>
+						{% endif %}
+						{% if post.corner == 'true' %}
+							Corner<br>
+						{% endif %}
+					{% endif %}
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="desc_tab" style="display: none">
+				<div class="rounded combo-col anyClass">
+					<h3 class="text-center">{{post.combo}} <span class="dmg">{{post.damage}}dmg</span></h3>
+					<h5>{{post.comment}}</h5>
+				</div>
+		</div>
+		<div class="chars_tab text-center" style="display: none;" onclick="show_chars(this)">
+			<img src="/static/img/cast.png" alt="{{post.chars}}"  width="500px">
+		</div>
+		<div class="video_tab" style="display: none">
+			{% if 0 %}
+			<div class="video-container  text-center">		
+					<iframe width="560" height="315" src="{{post.youtube-video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			{% elif 1 %}
+		<!--	<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">
+					<a href="{{post.twitter_video}}"></a>
+			</blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+			-->
+			{% else %}
+				NO VIDEO
+			{% endif %}
+		</div>
+		<!-- CARD NAV -->
+		<div class="row details">
+			<div class="col-md-12">
+				<nav>
+					<ul class="pagination justify-content-center">
+						<li class="page-item">
+							<a class="page-link card_tab" href="#!" onclick="show_tab(this, 'combo_tab')">Combo</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link card_tab" href="#!" onclick="show_tab(this, 'desc_tab')">Description</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link card_tab" href="#!" onclick="show_tab(this, 'chars_tab')">Characters</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link card_tab" href="#!" onclick="show_tab(this, 'video_tab')">Video</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	{% endfor %}
+
+	<br><br><br>
+	<!-- Optional JavaScript -->
+
+	<script type="text/javascript">
+	/* FLASHCARD TABS SWITCH */
+	function show_tab(current_elem, active_tab) {
+		var n_flashcard = current_elem.closest("div.flashcard").id.slice(-1); 
+		var tabs = ['combo_tab', 'desc_tab', 'chars_tab', 'video_tab'];
+		flashcard = document.getElementById('flashcard_' + n_flashcard);
+
+		for (var i = 0; i < tabs.length; ++i)
+		{
+			if (tabs[i] == active_tab)
+			{
+				flashcard.querySelector('div.' + active_tab).style.display = 'block';
+			}
+			else
+			{
+				flashcard.querySelector('div.' + tabs[i]).style.display = 'none';
+			}
+		}
+	}
+	</script>
+
+	<script type="text/javascript">
+	/* FLASHCARD NUMBERING */
+		var flashcards = document.querySelectorAll('.flashcard');
+
+		for (var i = 0; i < flashcards.length; i++)
+			flashcards[i].id = 'flashcard_' + i;
+	</script>
+
+	<script>
+		/* PORTRAIT LOAD*/
+		var portraits = document.getElementsByClassName('portrait'); //bleh
+
+		for (var i = 0; i < portraits.length; ++i)
+			portraits[i].src = "/static/img/" + portraits[i].className.replace('portrait ','') + ".png";
+	</script>
+
+	<script>
+		function show_chars() {
+			var chars = ['sol', 'ky', 'may', 'millia', 'zato-1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'i-no', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jack-o', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
+		}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!--
+	l44: overflow hidden -> something that does "blabla..." instead of "blabla"bla overflow: 95 chars max
+	manage twitter videos with API
+-->
