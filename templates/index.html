@@ -94,10 +94,9 @@
 				</div>
 		</div>
 		<div class="chars_tab text-center" style="display: none;">
-			<div class="{{post.characters}}"></div>
-			<!--<img src="/static/img/cast.png" alt="{{post.chars}}"  width="500px">-->
+			<div class="thumbnails {{post.characters}}"></div>
 		</div>
-		<div class="video_tab" style="display: none">
+		<div class="video_tab" style="display: none;">
 			{% if 0 %}
 			<div class="video-container  text-center">		
 					<iframe width="560" height="315" src="{{post.youtube-video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -179,26 +178,33 @@
 
 	<script>
 		var list_chars = ['sol', 'ky', 'may', 'millia', 'zato-1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'i-no', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jack-o', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
-		var chars_tab = document.getElementsByClassName('chars_tab'); //bleh
-		
+		var chars_tab_subdiv = document.getElementsByClassName('thumbnails');
 
-		for (var i = 0; i < chars_tab.length; i++)
+		for (var i = 0; i < chars_tab_subdiv.length; i++)
 		{
+			var post_characters = chars_tab_subdiv[i].classList;
+			
 			var displayed_chars = 0;
 			for (var j = 0; j < list_chars.length; j++) {
+
 				++displayed_chars;
 				if (displayed_chars % 9 == 8)
-				{
-					chars_tab[i].appendChild(document.createElement('br'));
-				}
+					chars_tab_subdiv[i].appendChild(document.createElement('br'));
+
 
 				var img = document.createElement("img");
 				img.width = "50";
 				img.src = "/static/img/" + list_chars[j] + ".png";
 
-				img.className = "darken";
-				chars_tab[i].appendChild(img);
+				for (var k = 1; k < post_characters.length; k++)
+					if (post_characters[k] == list_chars[j])
+						img.className = "bright";
 
+				if (!img.classList.contains("bright"))
+					img.style.filter = "brightness(0.25)";
+
+
+				chars_tab_subdiv[i].appendChild(img);
 			}
 		}
 

@@ -17,7 +17,7 @@ combos = [
 		'damage': '~70',
 		'resources': '0kcal',
 		'meter': 0,
-		'characters': 'sol johnny axl',
+		'characters': 'sol johnny axl i-no',
 		'comment': 'Basic combo.',
 		'youtube_video': 'https://www.youtube.com/embed/oDQyQtZbwqY',
 		'twitter_video': ''
@@ -34,7 +34,7 @@ combos = [
 		'damage': '~200',
 		'resources': '3kcal',
 		'meter': 50,
-		'characters': 'universal',
+		'characters': 'sol ky may millia zato-1 potemkin chipp faust axl venom slayer i-no bedman ramlethal sin elphelt leo johnny jack-o jam kum raven dizzy baiken answer',
 		'comment': 'Tu autem, Fanni, quod mihi tantum tribui dicis quantum ego nec adgnosco nec postulo, facis amice; sed, ut mihi videris, non recte iudicas de Catone; aut enim nemo, quod quidem magis credo, aut si quisquam, ille sapiens fuit. Quo modo, ut alia omittam, mortem filii tulit! memineram Paulum, videram Galum, sed hi in pueris, Cato in perfecto et spectato viro. Iam in altera philosophiae parte. quae est quaerendi ac disserendi, quae logikh dicitur, iste vester plane, ut mihi quidem videtur, inermis ac nudus est. tollit definitiones, nihil de dividendo ac partiendo docet, non quo modo efficiatur concludaturque ratio tradit, non qua via captiosa solvantur ambigua distinguantur ostendit; iudicia rerum in sensibus ponit, quibus si semel aliquid falsi pro vero probatum sit, sublatum esse omne iudicium veri et falsi putat. Nec minus feminae quoque calamitatum participes fuere similium. nam ex hoc quoque sexu peremptae sunt originis altae conplures, adulteriorum flagitiis obnoxiae vel stuprorum. inter quas notiores fuere Claritas et Flaviana, quarum altera cum duceretur ad mortem, indumento, quo vestita erat, abrepto, ne velemen quidem secreto membrorum sufficiens retinere permissa est. ideoque carnifex nefas admisisse convictus inmane, vivus exustus est. At nunc si ad aliquem bene nummatum tumentemque ideo honestus advena salutatum introieris, primitus tamquam exoptatus suscipieris et interrogatus multa coactusque mentiri, miraberis numquam antea visus summatem virum tenuem te sic enixius observantem, ut paeniteat ob haec bona tamquam praecipua non vidisse ante decennium Romam. Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus. Quod si forte, ut fit plerumque, ceciderunt, tum intellegitur quam fuerint inopes amicorum. Quod Tarquinium dixisse ferunt, tum exsulantem se intellexisse quos fidos amicos habuisset, quos infidos, cum iam neutris gratiam referre posset.',
 		'youtube_video': '',
 		'twitter_video': ''
@@ -68,7 +68,7 @@ combos = [
 		'damage': '~220',
 		'resources': '⠀', #INVISIBLE CHARACTER !
 		'meter': 0,
-		'characters': 'universal',
+		'characters': 'ky may',
 		'comment': 'Delay the tk until the cS animation ends.',
 		'youtube_video': '',
 		'twitter_video': 'https://twitter.com/nyphi7/status/1174728068629508096'
