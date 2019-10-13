@@ -22,7 +22,10 @@ body {
     align-self: auto;
 }
 
-
+/* PORTRAITS */
+img {
+	filter: brightness(0.5);
+}
 /* */
 p {
 	margin-top: 0.5rem;
@@ -86,6 +89,8 @@ p {
 	background: #fff;
 	color: #616161;
 }
+
+
 
 /* EMBEDDED VIDEO */
 .video-container {

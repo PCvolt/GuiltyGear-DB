@@ -17,7 +17,7 @@ combos = [
 		'damage': '~70',
 		'resources': '0kcal',
 		'meter': 0,
-		'characters': 'Universal',
+		'characters': 'sol johnny axl',
 		'comment': 'Basic combo.',
 		'youtube_video': 'https://www.youtube.com/embed/oDQyQtZbwqY',
 		'twitter_video': ''

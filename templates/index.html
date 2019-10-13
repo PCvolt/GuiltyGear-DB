@@ -93,8 +93,9 @@
 					<h5>{{post.comment}}</h5>
 				</div>
 		</div>
-		<div class="chars_tab text-center" style="display: none;" onclick="show_chars(this)">
-			<img src="/static/img/cast.png" alt="{{post.chars}}"  width="500px">
+		<div class="chars_tab text-center" style="display: none;">
+			<div class="{{post.characters}}"></div>
+			<!--<img src="/static/img/cast.png" alt="{{post.chars}}"  width="500px">-->
 		</div>
 		<div class="video_tab" style="display: none">
 			{% if 0 %}
@@ -177,9 +178,30 @@
 	</script>
 
 	<script>
-		function show_chars() {
-			var chars = ['sol', 'ky', 'may', 'millia', 'zato-1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'i-no', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jack-o', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
+		var list_chars = ['sol', 'ky', 'may', 'millia', 'zato-1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'i-no', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jack-o', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
+		var chars_tab = document.getElementsByClassName('chars_tab'); //bleh
+		
+
+		for (var i = 0; i < chars_tab.length; i++)
+		{
+			var displayed_chars = 0;
+			for (var j = 0; j < list_chars.length; j++) {
+				++displayed_chars;
+				if (displayed_chars % 9 == 8)
+				{
+					chars_tab[i].appendChild(document.createElement('br'));
+				}
+
+				var img = document.createElement("img");
+				img.width = "50";
+				img.src = "/static/img/" + list_chars[j] + ".png";
+
+				img.className = "darken";
+				chars_tab[i].appendChild(img);
+
+			}
 		}
+
 	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -190,4 +212,6 @@
 <!--
 	l44: overflow hidden -> something that does "blabla..." instead of "blabla"bla overflow: 95 chars max
 	manage twitter videos with API
+
+	min size = 480px for flashcards not to fuck up
 -->
