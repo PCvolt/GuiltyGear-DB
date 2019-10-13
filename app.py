@@ -80,6 +80,10 @@ combos = [
 def index():
 	return render_template('index.html', posts=combos)
 
+@app.route('/submit')
+def submit():
+	return render_template('submit.html')
+
 # 5P, 2P, 4P, 3P, 6P,
 # 5K, 2K, 3K, 6K
 # cS, fS, 2S

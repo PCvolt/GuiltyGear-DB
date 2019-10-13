@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GG DB</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-		crossorigin="anonymous">
-	<link rel="stylesheet" href="/static/css/style.css">
-</head>
-
-<body>
-	<h1 class="text-center">GUILTY GEAR Combos Database</h1>
-
+{% block content %}
 	<div class="flex-container">
 		<div class="flex-item text-center">
 			<h3>RESET</h3>
 		</div>
 		<div class="flex-item text-center">
-			<h4><div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Regular link</a>
-					<a class="dropdown-item active" href="#">Active link</a>
-					<a class="dropdown-item" href="#">Another link</a>
-				  </div>CHARACTER CONTAINS(starter or not) SPACING TENSION CHAR SPECS</h4>
+			<h4>CHARACTER CONTAINS(starter or not) SPACING TENSION CHAR SPECS -> GO</h4>
 		</div>
 		<div class="flex-item text-center">
-				<h3>SUBMIT A COMBO</h3>
+				<h3><a href="/submit">SUBMIT A COMBO</a></h3>
 		</div>
 	</div>
 
@@ -38,7 +21,7 @@
 					<img src="" alt="{{post.character}}" class="portrait {{post.character}}">
 				</div>
 				<div class="col-md-10 combo-col rounded" style="height: 82px;overflow-y: hidden;">
-					<h3 class="text-center combo" >
+					<h3 class="text-center combo">
 						<p>{{post.combo}}</p>
 					</h3>
 				</div>
@@ -137,7 +120,7 @@
 	{% endfor %}
 
 	<br><br><br>
-	<!-- Optional JavaScript -->
+	<!-- JavaScript -->
 
 	<script type="text/javascript">
 	/* FLASHCARD TABS SWITCH */
@@ -212,12 +195,13 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
 
 <!--
-	l44: overflow hidden -> something that does "blabla..." instead of "blabla"bla overflow: 95 chars max
-	manage twitter videos with API
+	-> 95 characters max per combo in the combo_tab (overflow: hidden)
+	-> implement video tab
+	-> form for displaying concerned combos (+ reset)
+	-> add a combo submit page
 
-	min size = 480px for flashcards not to fuck up
+	-> minimum width of 480px for flashcards
 -->
