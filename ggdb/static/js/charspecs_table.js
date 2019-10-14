@@ -3,7 +3,7 @@
 	If the combo works on a character, his class is "bright".
 	If the img class is not "bright", we darken the picture.
 */
-var list_chars = ['sol', 'ky', 'may', 'millia', 'zato-1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'i-no', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jack-o', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
+var list_chars = ['sol', 'ky', 'may', 'millia', 'zato1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'ino', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jacko', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
 var chars_tab_subdiv = document.getElementsByClassName('thumbnails');
 for (var i = 0; i < chars_tab_subdiv.length; i++)
 {
