@@ -1,4 +1,69 @@
 {% extends "base.html" %}
 {% block content %}
-biou
+
+<div class="flex-container">
+	<div class="col-md-4">   
+		<div class="row">
+			<ul>
+				<b>Prefixes</b>
+				<li>j = jump (in-air)</li>
+				<li>tk = tiger knee</li>
+				<li>ia = instant air</li>
+				<li>CH = counter hit</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<b>Character specific prefixes</b>
+				<li>Elphelt: SG- = shotgun</li>
+				<li>Leo: bt = backturn</li>
+				<li>Jam: c = carded</li>
+				<li>Jam: max = max carded</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<b>Suffixes</b>
+				<li>.nb = on normal block</li>
+				<li>.fd = on faultless defense</li>
+				<li>.ib = on instant block</li>
+				<li>.w = on whiff</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<b>Modifiers</b>
+				<li>[button] = charged button</li>
+				<li>-button- = release button</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<b>Miscellaneous</b>
+				<li>wallstick</li>
+				<li>wallslump</li>
+				<li>roll (?)</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row-md-8">
+		<div class="flex-container rounded flashcard">
+			<ul>
+				FORM
+				<li>character (dropdown)</li>
+				<li>combo (text)</li>
+				<li>damages (text)</li>
+				<li>meter (0-25-50-75-100)</li>
+				<li>resources (depends on the character chosen)</li>
+				<li>standing, crouching, jumping (checkboxes)</li>
+				<li>midscreen, near corner, corner (checkboxes)</li>
+				<li>character specifics (?)</li>
+				<li>comment (text)</li>
+				<li>video (text)</li>
+			</ul>
+		</div>
+	</div>
+</div>
 {% endblock %}
+
+<!-- narrow the div so they appear more at the center -->

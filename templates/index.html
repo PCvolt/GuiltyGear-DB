@@ -13,6 +13,7 @@
 		</div>
 	</div>
 
+	<br>
 	{% for post in posts %}
 	<div class="container-fluid rounded flashcard">		
 		<div class="combo_tab" style="display: block">	
@@ -119,83 +120,13 @@
 	<br>
 	{% endfor %}
 
-	<br><br><br>
+	<br><br>
 	<!-- JavaScript -->
-
-	<script type="text/javascript">
-	/* FLASHCARD TABS SWITCH */
-	function show_tab(current_elem, active_tab) {
-		var n_flashcard = current_elem.closest("div.flashcard").id.slice(-1); 
-		var tabs = ['combo_tab', 'desc_tab', 'chars_tab', 'video_tab'];
-		flashcard = document.getElementById('flashcard_' + n_flashcard);
-
-		for (var i = 0; i < tabs.length; ++i)
-		{
-			if (tabs[i] == active_tab)
-			{
-				flashcard.querySelector('div.' + active_tab).style.display = 'block';
-			}
-			else
-			{
-				flashcard.querySelector('div.' + tabs[i]).style.display = 'none';
-			}
-		}
-	}
-	</script>
-
-	<script type="text/javascript">
-	/* FLASHCARD NUMBERING */
-		var flashcards = document.querySelectorAll('.flashcard');
-
-		for (var i = 0; i < flashcards.length; i++)
-			flashcards[i].id = 'flashcard_' + i;
-	</script>
-
-	<script>
-		/* PORTRAIT LOAD*/
-		var portraits = document.getElementsByClassName('portrait'); //bleh
-
-		for (var i = 0; i < portraits.length; ++i)
-			portraits[i].src = "/static/img/" + portraits[i].className.replace('portrait ','') + ".png";
-	</script>
-
-	<script>
-		var list_chars = ['sol', 'ky', 'may', 'millia', 'zato-1', 'potemkin', 'chipp', 'faust', 'axl', 'venom', 'slayer', 'i-no', 'bedman', 'ramlethal', 'sin', 'elphelt', 'leo', 'johnny', 'jack-o', 'jam', 'kum', 'raven', 'dizzy', 'baiken', 'answer'];
-		var chars_tab_subdiv = document.getElementsByClassName('thumbnails');
-
-		for (var i = 0; i < chars_tab_subdiv.length; i++)
-		{
-			var post_characters = chars_tab_subdiv[i].classList;
-			
-			var displayed_chars = 0;
-			for (var j = 0; j < list_chars.length; j++) {
-
-				++displayed_chars;
-				if (displayed_chars % 9 == 8)
-					chars_tab_subdiv[i].appendChild(document.createElement('br'));
-
-
-				var img = document.createElement("img");
-				img.width = "50";
-				img.src = "/static/img/" + list_chars[j] + ".png";
-
-				for (var k = 1; k < post_characters.length; k++)
-					if (post_characters[k] == list_chars[j])
-						img.className = "bright";
-
-				if (!img.classList.contains("bright"))
-					img.style.filter = "brightness(0.25)";
-
-
-				chars_tab_subdiv[i].appendChild(img);
-			}
-		}
-
-	</script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-{% endblock %}
+	<script src="/static/js/flashcard_numbering.js"></script>
+	<script src="/static/js/flashcard_tabs_switch.js"></script>
+	<script src="/static/js/portrait_load.js"></script>
+	<!--<script src="/static/js/charspecs_table.js"></script> --> <!-- Uncommenting it will make the script run for a 2nd time for some reason. -->
+	{% endblock %}
 
 <!--
 	-> 95 characters max per combo in the combo_tab (overflow: hidden)
