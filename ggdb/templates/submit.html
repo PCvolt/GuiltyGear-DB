@@ -6,10 +6,9 @@
 		<div class="row">
 			<ul>
 				<b>Prefixes</b>
-				<li>j = jump (in-air)</li>
+				<li>j = jump/in-air</li>
 				<li>tk = tiger knee</li>
 				<li>ia = instant air</li>
-				<li>CH = counter hit</li>
 			</ul>
 		</div>
 		<div class="row">
@@ -19,15 +18,18 @@
 				<li>Leo: bt = backturn</li>
 				<li>Jam: c = carded</li>
 				<li>Jam: max = max carded</li>
+				<li>Answer: s. = scroll</li>
 			</ul>
 		</div>
 		<div class="row">
 			<ul>
 				<b>Suffixes</b>
+				<li>.CH = counter hit</li>
 				<li>.nb = on normal block</li>
 				<li>.fd = on faultless defense</li>
 				<li>.ib = on instant block</li>
 				<li>.w = on whiff</li>
+				<li>.c = on clash</li>
 			</ul>
 		</div>
 		<div class="row">
@@ -35,35 +37,314 @@
 				<b>Modifiers</b>
 				<li>[button] = charged button</li>
 				<li>-button- = release button</li>
+				<li>(number) = number of hits</li>
 			</ul>
 		</div>
 		<div class="row">
 			<ul>
 				<b>Miscellaneous</b>
+				<li>dl = delay</li>
+				<li>jc = jump cancel</li>
+				<li>fdc = faultless defense cancel</li>
 				<li>wallstick</li>
 				<li>wallslump</li>
-				<li>roll (?)</li>
+				<li>roll</li>
 			</ul>
 		</div>
 	</div>
-	<div class="row-md-8">
-		<div class="flex-container rounded flashcard">
-			<ul>
-				FORM
-				<li>character (dropdown)</li>
-				<li>combo (text)</li>
-				<li>damages (text)</li>
-				<li>meter (0-25-50-75-100)</li>
-				<li>resources (depends on the character chosen)</li>
-				<li>standing, crouching, jumping (checkboxes)</li>
-				<li>midscreen, near corner, corner (checkboxes)</li>
-				<li>character specifics (?)</li>
-				<li>comment (text)</li>
-				<li>video (text)</li>
-			</ul>
+	<div class="col-md-8">
+		<div class="">
+			<form>
+				<div class="form-row">
+					<div class="form-group col-md-2">
+						<label for="character">CHARACTER</label>
+						<select class="form-control" id="character">
+							<option>Sol</option>
+							<option>Ky</option>
+							<option>May</option>
+							<option>Millia</option>
+							<option>Zato-1</option>
+							<option>Potemkin</option>
+							<option>Chipp</option>
+							<option>Faust</option>
+							<option>Axl</option>
+							<option>Venom</option>
+							<option>Slayer</option>
+							<option>I-no</option>
+							<option>Bedman</option>
+							<option>Ramlethal</option>
+							<option>Sin</option>
+							<option>Elphelt</option>
+							<option>Leo</option>
+							<option>Johnny</option>
+							<option>Jack-O'</option>
+							<option>Jam</option>
+							<option>Kum</option>
+							<option>Raven</option>
+							<option>Dizzy</option>
+							<option>Baiken</option>
+							<option>Answer</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="combo">COMBO</label>
+						<textarea class="form-control" id="combo" required></textarea>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-2">
+						<label for="meter">METER</label>
+						<input type="number" class="form-control" placeholder="0-100" min="0" max="100" step="25" id="meter" required>
+					</div>
+
+					<div class="form-group col-md-2">
+						<label for="damage">DAMAGE</label>
+						<input type="number" class="form-control" placeholder="x1.0 or closest" min="0" max="420" id="damage" required>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="standing" value="standing">
+						<label class="form-check-label" for="standing">Standing</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="crouching" value="crouching">
+						<label class="form-check-label" for="crouching">Crouching</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="jumping" value="jumping">
+						<label class="form-check-label" for="jumping">Jumping</label>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox" id="midscreen" value="midscreen">
+							<label class="form-check-label" for="midscreen">Midscreen</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="nearcorner" value="nearcorner">
+						<label class="form-check-label" for="nearcorner">Near Corner</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="corner" value="corner">
+						<label class="form-check-label" for="corner">Corner</label>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group">
+						<label class="form-check-label" for="table_characters">CHARACTER SPECIFICITY</label>
+						<table class="table table-bordered" id="table_characters">
+						<tbody>
+							<tr>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="sol">
+										<label class="custom-control-label" for="sol">Sol</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="ky">
+										<label class="custom-control-label" for="ky">Ky</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="may">
+										<label class="custom-control-label" for="may">May</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="millia">
+										<label class="custom-control-label" for="millia">Millia</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="zato-1">
+										<label class="custom-control-label" for="zato-1">Zato-1</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="potemkin">
+										<label class="custom-control-label" for="potemkin">Potemkin</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="chipp">
+										<label class="custom-control-label" for="chipp">Chipp</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="faust">
+										<label class="custom-control-label" for="faust">Faust</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="axl">
+										<label class="custom-control-label" for="axl">Axl</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="venom">
+										<label class="custom-control-label" for="venom">Venom</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="slayer">
+										<label class="custom-control-label" for="slayer">Slayer</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="i-no">
+										<label class="custom-control-label" for="i-no">I-no</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="bedman">
+										<label class="custom-control-label" for="bedman">Bedman</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="ramlethal">
+										<label class="custom-control-label" for="ramlethal">Ramlethal</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="sin">
+										<label class="custom-control-label" for="sin">Sin</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="elphelt">
+										<label class="custom-control-label" for="elphelt">Elphelt</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="leo">
+										<label class="custom-control-label" for="leo">Leo</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="johnny">
+										<label class="custom-control-label" for="johnny">Johnny</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="jack-O">
+										<label class="custom-control-label" for="jack-O">Jack-O'</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="jam">
+										<label class="custom-control-label" for="jam">Jam</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="kum">
+										<label class="custom-control-label" for="kum">Kum</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="raven">
+										<label class="custom-control-label" for="raven">Raven</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="dizzy">
+										<label class="custom-control-label" for="dizzy">Dizzy</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="baiken">
+										<label class="custom-control-label" for="baiken">Baiken</label>
+									</div>
+								</td>
+								<td>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input check" id="answer">
+										<label class="custom-control-label" for="answer">Answer</label>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+
+					<div class="form-group">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input check" id="checkAll">
+							<label class="custom-control-label" for="checkAll">Check All</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="comment">COMMENT</label>
+						<textarea class="form-control" id="comment" rows="3"></textarea>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="videolink">VIDEO LINK</label>
+						<input type="url" class="form-control" placeholder="https://..." id="damage">
+					</div>
+				</div>
+				Needs to be validated for yt, twitter, streamable
+
+				<div class="form-row">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
+
+
+<script>
+$("#checkAll").click(function () {
+    $(".check").prop('checked', $(this).prop('checked'));
+});
+
+$('.slider').slider()
+</script>
 {% endblock %}
 
 <!-- narrow the div so they appear more at the center -->

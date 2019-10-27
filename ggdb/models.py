@@ -20,7 +20,6 @@ class Combo(db.Model):
 	nearcorner = db.Column(db.Boolean, nullable=False)
 	corner = 	db.Column(db.Boolean, nullable=False)
 	meter = 	db.Column(db.Integer, nullable=False)
-	resources = db.Column(db.String(15), nullable=True)
 	comment = 	db.Column(db.String(1000), nullable=True)
 	video = 	db.Column(db.String(60), nullable=True)
 
