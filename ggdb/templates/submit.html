@@ -53,8 +53,10 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<div class="">
-			<form>
+		<div>
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+
 				<div class="form-row">
 					<div class="form-group col-md-2">
 						<label for="character">CHARACTER</label>
@@ -90,8 +92,8 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="combo">COMBO</label>
-						<textarea class="form-control" id="combo" required></textarea>
+						{{ form.combo.label(class="form-control-label") }}
+						{{ form.combo(class="form-control") }}
 					</div>
 				</div>
 
@@ -259,8 +261,8 @@
 								</td>
 								<td>
 									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="jack-O">
-										<label class="custom-control-label" for="jack-O">Jack-O'</label>
+										<input type="checkbox" class="custom-control-input check" id="jack-o">
+										<label class="custom-control-label" for="jack-o">Jack-O'</label>
 									</div>
 								</td>
 								<td>
@@ -308,8 +310,8 @@
 
 					<div class="form-group">
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input check" id="checkAll">
 							<label class="custom-control-label" for="checkAll">Check All</label>
+							<input type="checkbox" class="custom-control-input check" id="checkAll">
 						</div>
 					</div>
 				</div>
@@ -324,7 +326,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="videolink">VIDEO LINK</label>
-						<input type="url" class="form-control" placeholder="https://..." id="damage">
+						<input type="url" class="form-control" placeholder="https://..." id="videolink">
 					</div>
 				</div>
 				Needs to be validated for yt, twitter, streamable
@@ -342,8 +344,6 @@
 $("#checkAll").click(function () {
     $(".check").prop('checked', $(this).prop('checked'));
 });
-
-$('.slider').slider()
 </script>
 {% endblock %}
 

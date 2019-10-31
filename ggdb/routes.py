@@ -1,7 +1,7 @@
-from flask import render_template, url_for
+from flask import render_template, url_for, redirect
 from ggdb import app, db, bcrypt
-from ggdb.models import User, Combo, CharSpecs
-
+from ggdb.models import Combo, CharSpecs
+from ggdb.forms import ComboForm, CharSpecsForm
 
 combos = [
 	{
@@ -107,6 +107,11 @@ combos = [
 def index():
 	return render_template('index.html', posts=combos)
 
-@app.route('/submit')
+@app.route('/submit', methods=['GET', 'POST'])
 def submit():
-	return render_template('submit.html')
+	form = ComboForm()
+	if form.validate_on_submit():
+		flash(f'oki : {form.combo.data}', 'success')
+		return redirect(url_for('index'))
+	return render_template('submit.html', form=form)
+

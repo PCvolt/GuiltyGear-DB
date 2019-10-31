@@ -1,5 +1,46 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import Form, StringField, IntegerField, BooleanField, validators, SubmitField, SelectField
+from wtforms.validators import ValidationError, DataRequired, EqualTo, Length
 
-class RegistrationForm():
-	int pikachu
+class ComboForm(FlaskForm):
+	character 	= StringField	('CHARACTER')
+	combo 		= StringField	('COMBO', 		validators=[DataRequired(), Length(min=5)])
+	meter 		= IntegerField	('METER', 		validators=[DataRequired(), Length(min=0, max=100)])
+	damage 		= IntegerField	('DAMAGE', 		validators=[DataRequired(), Length(min=0, max=420)])
+	standing 	= BooleanField	('Standing')
+	crouching 	= BooleanField	('Crouching')
+	jumping 	= BooleanField	('Jumping')
+	midscreen 	= BooleanField	('Midscreen')
+	nearcorner 	= BooleanField	('Nearcorner')
+	corner 		= BooleanField	('Corner')
+	comment 	= StringField	('COMMENT', 	validators=[Length(max=2000)])
+	videolink 	= StringField	('VIDEO LINK',	validators=[Length(max=200)])
+	submit 		= SubmitField	('Submit combo!')
+
+
+class CharSpecsForm(FlaskForm):
+	sol 	= BooleanField('Sol')
+	ky 		= BooleanField('Ky')
+	may 	= BooleanField('May')
+	millia 	= BooleanField('Millia')
+	zato1 	= BooleanField('Zato-1')
+	potemkin= BooleanField('Potemkin')
+	chipp 	= BooleanField('Chipp')
+	faust 	= BooleanField('Faust')
+	axl 	= BooleanField('Axl')
+	venom 	= BooleanField('Venom')
+	slayer 	= BooleanField('Slayer')
+	ino 	= BooleanField('I-no')
+	bedman 	= BooleanField('Bedman')
+	ramlethal= BooleanField('Ramlethal')
+	sin 	= BooleanField('Sin')
+	elphelt = BooleanField('Elphelt')
+	leo 	= BooleanField('Leo')
+	johnny 	= BooleanField('Johnny')
+	jacko 	= BooleanField('Jack-o')
+	jam 	= BooleanField('Jam')
+	kum 	= BooleanField('Kum')
+	raven 	= BooleanField('Raven')
+	dizzy 	= BooleanField('Dizzy')
+	baiken 	= BooleanField('Baiken')
+	answer 	= BooleanField('Answer')

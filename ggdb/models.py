@@ -1,11 +1,5 @@
 from ggdb import db
 
-class User(db.Model):
-	id = 		db.Column(db.Integer, primary_key=True)
-	username = 	db.Column(db.String(20), nullable=False)
-	password = 	db.Column(db.String(60), nullable=False)
-	verified_combos = db.relationship('Combo', backref='verified_combos', lazy=True)
-
 class Combo(db.Model):
 	id = 		db.Column(db.Integer, primary_key=True)
 	verifier_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
