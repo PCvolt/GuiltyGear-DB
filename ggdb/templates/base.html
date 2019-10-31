@@ -17,6 +17,16 @@
 
 <body>
 	<h1 class="text-center"><a href="/">GUILTY GEAR Combos Database</a></h1>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				<div class="alert alert-{{ category }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
 	{% block content %}{% endblock %}
 </body>
 </html>

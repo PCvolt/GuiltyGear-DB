@@ -59,34 +59,8 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-2">
-						<label for="character">CHARACTER</label>
-						<select class="form-control" id="character">
-							<option>Sol</option>
-							<option>Ky</option>
-							<option>May</option>
-							<option>Millia</option>
-							<option>Zato-1</option>
-							<option>Potemkin</option>
-							<option>Chipp</option>
-							<option>Faust</option>
-							<option>Axl</option>
-							<option>Venom</option>
-							<option>Slayer</option>
-							<option>I-no</option>
-							<option>Bedman</option>
-							<option>Ramlethal</option>
-							<option>Sin</option>
-							<option>Elphelt</option>
-							<option>Leo</option>
-							<option>Johnny</option>
-							<option>Jack-O'</option>
-							<option>Jam</option>
-							<option>Kum</option>
-							<option>Raven</option>
-							<option>Dizzy</option>
-							<option>Baiken</option>
-							<option>Answer</option>
-						</select>
+						{{ form.character.label(class="form-control-label") }}
+						{{ form.character(class="form-control") }}
 					</div>
 				</div>
 
@@ -99,240 +73,235 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-2">
-						<label for="meter">METER</label>
-						<input type="number" class="form-control" placeholder="0-100" min="0" max="100" step="25" id="meter" required>
+						{{ form.meter.label(class="form-control-label") }}
+						{{ form.meter(class="form-control") }}
 					</div>
 
 					<div class="form-group col-md-2">
-						<label for="damage">DAMAGE</label>
-						<input type="number" class="form-control" placeholder="x1.0 or closest" min="0" max="420" id="damage" required>
+						{{ form.damage.label(class="form-control-label") }}
+						{{ form.damage(class="form-control") }}
 					</div>
 				</div>
 
 				<div class="form-row">
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="standing" value="standing">
-						<label class="form-check-label" for="standing">Standing</label>
+					<div class="form-check-inline custom-control custom-switch">
+						{{ form.standing(class="custom-control-input") }}
+						{{ form.standing.label(class="custom-control-label") }}
 					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="crouching" value="crouching">
-						<label class="form-check-label" for="crouching">Crouching</label>
+					<div class="form-check-inline custom-control custom-switch">
+						{{ form.crouching(class="custom-control-input") }}
+						{{ form.crouching.label(class="custom-control-label") }}
 					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="jumping" value="jumping">
-						<label class="form-check-label" for="jumping">Jumping</label>
+					<div class="form-check-inline custom-control custom-switch">
+						{{ form.jumping(class="custom-control-input") }}
+						{{ form.jumping.label(class="custom-control-label") }}
 					</div>
 				</div>
 
 				<div class="form-row">
-					<div class="form-check form-check-inline">
-							<input class="form-check-input" type="checkbox" id="midscreen" value="midscreen">
-							<label class="form-check-label" for="midscreen">Midscreen</label>
+					<div class="form-check-inline custom-control custom-switch">
+						{{ form.midscreen(class="custom-control-input") }}
+						{{ form.midscreen.label(class="custom-control-label") }}
 					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="nearcorner" value="nearcorner">
-						<label class="form-check-label" for="nearcorner">Near Corner</label>
+					<div class="form-check-inline custom-control custom-switch">
+						{{ form.nearcorner(class="custom-control-input") }}
+						{{ form.nearcorner.label(class="custom-control-label") }}
 					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="corner" value="corner">
-						<label class="form-check-label" for="corner">Corner</label>
+					<div class="form-check-inline custom-control custom-switch">
+						{{ form.corner(class="custom-control-input") }}
+						{{ form.corner.label(class="custom-control-label") }}
 					</div>
 				</div>
-
+				<br>
 				<div class="form-row">
 					<div class="form-group">
 						<label class="form-check-label" for="table_characters">CHARACTER SPECIFICITY</label>
+								(<input type="checkbox" class="check" id="checkAll">
+								<label for="checkAll">Everyone</label>
+								)
 						<table class="table table-bordered" id="table_characters">
 						<tbody>
 							<tr>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="sol">
-										<label class="custom-control-label" for="sol">Sol</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.sol(class="custom-control-input check") }}
+										{{ form.sol.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="ky">
-										<label class="custom-control-label" for="ky">Ky</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.ky(class="custom-control-input check") }}
+										{{ form.ky.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="may">
-										<label class="custom-control-label" for="may">May</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.may(class="custom-control-input check") }}
+										{{ form.may.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="millia">
-										<label class="custom-control-label" for="millia">Millia</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.millia(class="custom-control-input check") }}
+										{{ form.millia.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="zato-1">
-										<label class="custom-control-label" for="zato-1">Zato-1</label>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="potemkin">
-										<label class="custom-control-label" for="potemkin">Potemkin</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="chipp">
-										<label class="custom-control-label" for="chipp">Chipp</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="faust">
-										<label class="custom-control-label" for="faust">Faust</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="axl">
-										<label class="custom-control-label" for="axl">Axl</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="venom">
-										<label class="custom-control-label" for="venom">Venom</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.zato1(class="custom-control-input check") }}
+										{{ form.zato1.label(class="custom-control-label") }}
 									</div>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="slayer">
-										<label class="custom-control-label" for="slayer">Slayer</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.potemkin(class="custom-control-input check") }}
+										{{ form.potemkin.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="i-no">
-										<label class="custom-control-label" for="i-no">I-no</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.chipp(class="custom-control-input check") }}
+										{{ form.chipp.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="bedman">
-										<label class="custom-control-label" for="bedman">Bedman</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.faust(class="custom-control-input check") }}
+										{{ form.faust.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="ramlethal">
-										<label class="custom-control-label" for="ramlethal">Ramlethal</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.axl(class="custom-control-input check") }}
+										{{ form.axl.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="sin">
-										<label class="custom-control-label" for="sin">Sin</label>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="elphelt">
-										<label class="custom-control-label" for="elphelt">Elphelt</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="leo">
-										<label class="custom-control-label" for="leo">Leo</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="johnny">
-										<label class="custom-control-label" for="johnny">Johnny</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="jack-o">
-										<label class="custom-control-label" for="jack-o">Jack-O'</label>
-									</div>
-								</td>
-								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="jam">
-										<label class="custom-control-label" for="jam">Jam</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.venom(class="custom-control-input check") }}
+										{{ form.venom.label(class="custom-control-label") }}
 									</div>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="kum">
-										<label class="custom-control-label" for="kum">Kum</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.slayer(class="custom-control-input check") }}
+										{{ form.slayer.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="raven">
-										<label class="custom-control-label" for="raven">Raven</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.ino(class="custom-control-input check") }}
+										{{ form.ino.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="dizzy">
-										<label class="custom-control-label" for="dizzy">Dizzy</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.bedman(class="custom-control-input check") }}
+										{{ form.bedman.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="baiken">
-										<label class="custom-control-label" for="baiken">Baiken</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.ramlethal(class="custom-control-input check") }}
+										{{ form.ramlethal.label(class="custom-control-label") }}
 									</div>
 								</td>
 								<td>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input check" id="answer">
-										<label class="custom-control-label" for="answer">Answer</label>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.sin(class="custom-control-input check") }}
+										{{ form.sin.label(class="custom-control-label") }}
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.elphelt(class="custom-control-input check") }}
+										{{ form.elphelt.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.leo(class="custom-control-input check") }}
+										{{ form.leo.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.johnny(class="custom-control-input check") }}
+										{{ form.johnny.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.jacko(class="custom-control-input check") }}
+										{{ form.jacko.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.jam(class="custom-control-input check") }}
+										{{ form.jam.label(class="custom-control-label") }}
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.kum(class="custom-control-input check") }}
+										{{ form.kum.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.raven(class="custom-control-input check") }}
+										{{ form.raven.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.dizzy(class="custom-control-input check") }}
+										{{ form.dizzy.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.baiken(class="custom-control-input check") }}
+										{{ form.baiken.label(class="custom-control-label") }}
+									</div>
+								</td>
+								<td>
+									<div class="form-check-inline custom-control custom-switch">
+										{{ form.answer(class="custom-control-input check") }}
+										{{ form.answer.label(class="custom-control-label") }}
 									</div>
 								</td>
 							</tr>
 						</tbody>
 						</table>
 					</div>
+				</div>
 
-					<div class="form-group">
-						<div class="custom-control custom-checkbox">
-							<label class="custom-control-label" for="checkAll">Check All</label>
-							<input type="checkbox" class="custom-control-input check" id="checkAll">
-						</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+							{{ form.comment.label(class="form-control-label") }}
+							{{ form.comment(class="form-control", rows="3") }}
 					</div>
 				</div>
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="comment">COMMENT</label>
-						<textarea class="form-control" id="comment" rows="3"></textarea>
+						{{ form.videolink.label(class="form-control-label") }}
+						{{ form.videolink(class="form-control") }}
 					</div>
 				</div>
 
 				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="videolink">VIDEO LINK</label>
-						<input type="url" class="form-control" placeholder="https://..." id="videolink">
-					</div>
-				</div>
-				Needs to be validated for yt, twitter, streamable
-
-				<div class="form-row">
-					<button type="submit" class="btn btn-primary">Submit</button>
+						{{ form.submit(class="btn btn-line-info") }} 
 				</div>
 			</form>
 		</div>
@@ -342,7 +311,7 @@
 
 <script>
 $("#checkAll").click(function () {
-    $(".check").prop('checked', $(this).prop('checked'));
+	$(".check").prop('checked', $(this).prop('checked'));
 });
 </script>
 {% endblock %}

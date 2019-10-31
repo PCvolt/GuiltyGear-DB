@@ -1,7 +1,7 @@
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, flash
 from ggdb import app, db, bcrypt
 from ggdb.models import Combo, CharSpecs
-from ggdb.forms import ComboForm, CharSpecsForm
+from ggdb.forms import ComboForm
 
 combos = [
 	{
