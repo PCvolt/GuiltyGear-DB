@@ -6,11 +6,11 @@ from wtforms.widgets import TextArea
 
 class ComboForm(FlaskForm):
 	character 	= SelectField	('CHARACTER',
-								choices=[('Sol', 'Sol'), ('Ky', 'Ky'), ('May', 'May'), ('Millia', 'Millia'), ('Zato-1', 'Zato-1'), ('Potemkin', 'Potemkin'), ('Chipp', 'Chipp'), ('Faust', 'Faust'),
-								('Axl', 'Axl'), ('Venom', 'Venom'), ('Slayer', 'Slayer'), ('I-no', 'I-no'), ('Bedman', 'Bedman'), ('Ramlethal', 'Ramlethal'), ('Sin', 'Sin'), ('Elphelt', 'Elphelt'),
-								('Leo', 'Leo'), ('Johnny', 'Johnny'), ('Jack-O', 'Jack-O'), ('Jam', 'Jam'), ('Kum', 'Kum'), ('Raven', 'Raven'), ('Dizzy', 'Dizzy'), ('Baiken', 'Baiken'), ('Answer', 'Answer')])
-	combo 		= StringField	('COMBO', 		validators=[DataRequired(), Length(min=5)])
-	meter 		= IntegerField	('METER', 		validators=[DataRequired(), NumberRange(min=0, max=100)], render_kw={"placeholder": "0-100"})
+								choices=[('sol', 'Sol'), ('ky', 'Ky'), ('may', 'May'), ('millia', 'Millia'), ('zato-1', 'Zato-1'), ('potemkin', 'Potemkin'), ('chipp', 'Chipp'), ('faust', 'Faust'),
+								('axl', 'Axl'), ('venom', 'Venom'), ('slayer', 'Slayer'), ('ino', 'I-no'), ('bedman', 'Bedman'), ('ramlethal', 'Ramlethal'), ('sin', 'Sin'), ('elphelt', 'Elphelt'),
+								('leo', 'Leo'), ('johnny', 'Johnny'), ('jacko', 'Jack-O'), ('jam', 'Jam'), ('kum', 'Kum'), ('raven', 'Raven'), ('dizzy', 'Dizzy'), ('baiken', 'Baiken'), ('answer', 'Answer')])
+	combo 		= StringField	('COMBO', 		validators=[DataRequired(), Length(min=5, max=300)])
+	meter 		= IntegerField	('METER', 		validators=[DataRequired(), NumberRange(min=0, max=100)], render_kw={"placeholder": "0-100"}) #buggy, can't receive 0 as an input
 	damage 		= IntegerField	('DAMAGE', 		validators=[DataRequired(), NumberRange(min=0, max=420)], render_kw={"placeholder": "0-420"})
 	standing 	= BooleanField	('Standing')
 	crouching 	= BooleanField	('Crouching')

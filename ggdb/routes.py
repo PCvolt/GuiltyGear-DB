@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash
 from ggdb import app, db, bcrypt
-from ggdb.models import Combo, CharSpecs
+from ggdb.models import Combo
 from ggdb.forms import ComboForm
 
 combos = [
@@ -111,7 +111,20 @@ def index():
 def submit():
 	form = ComboForm()
 	if form.validate_on_submit():
-		flash(f'oki : {form.combo.data}', 'success')
+		combo = Combo(character=form.character.data, combo=form.combo.data, meter=form.meter.data, damage=form.damage.data,
+				standing=form.standing.data, crouching=form.crouching.data, jumping=form.jumping.data,
+				midscreen=form.midscreen.data, nearcorner=form.nearcorner.data, corner=form.corner.data,
+				comment=form.comment.data, videolink=form.videolink.data,
+				sol=form.sol.data, ky=form.ky.data, may=form.may.data, millia=form.millia.data, zato1=form.zato1.data,
+				potemkin=form.potemkin.data, chipp=form.chipp.data, faust=form.faust.data, axl=form.axl.data, venom=form.venom.data,
+				slayer=form.slayer.data, ino=form.ino.data, bedman=form.bedman.data, ramlethal=form.ramlethal.data, sin=form.sin.data,
+				elphelt=form.elphelt.data, leo=form.leo.data, johnny=form.johnny.data, jacko=form.jacko.data, jam=form.jam.data,
+				kum=form.kum.data, raven=form.raven.data, dizzy=form.dizzy.data, baiken=form.baiken.data, answer=form.answer.data)
+
+		db.session.add(combo)
+		db.create_all()
+		db.session.commit()
+		flash(f'Combo added : {form.character.data} - {form.combo.data}', 'success')
 		return redirect(url_for('index'))
 	return render_template('submit.html', form=form)
 
