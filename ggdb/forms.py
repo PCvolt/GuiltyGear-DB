@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import Form, StringField, IntegerField, BooleanField, validators, SubmitField, SelectField, TextAreaField
-from wtforms.validators import NumberRange, ValidationError, DataRequired, EqualTo, Length
+from wtforms.validators import NumberRange, ValidationError, DataRequired, InputRequired, EqualTo, Length
 from wtforms.widgets import TextArea
 
 
@@ -10,19 +10,19 @@ class ComboForm(FlaskForm):
 								('axl', 'Axl'), ('venom', 'Venom'), ('slayer', 'Slayer'), ('ino', 'I-no'), ('bedman', 'Bedman'), ('ramlethal', 'Ramlethal'), ('sin', 'Sin'), ('elphelt', 'Elphelt'),
 								('leo', 'Leo'), ('johnny', 'Johnny'), ('jacko', 'Jack-O'), ('jam', 'Jam'), ('kum', 'Kum'), ('raven', 'Raven'), ('dizzy', 'Dizzy'), ('baiken', 'Baiken'), ('answer', 'Answer')])
 	combo 		= StringField	('COMBO', 		validators=[DataRequired(), Length(min=5, max=300)])
-	meter 		= IntegerField	('METER', 		validators=[DataRequired(), NumberRange(min=0, max=100)], render_kw={"placeholder": "0-100"}) #buggy, can't receive 0 as an input
-	damage 		= IntegerField	('DAMAGE', 		validators=[DataRequired(), NumberRange(min=0, max=420)], render_kw={"placeholder": "0-420"})
-	standing 	= BooleanField	('Standing')
+	meter 		= IntegerField	('METER', 		validators=[InputRequired(), NumberRange(min=0, max=100)], render_kw={"placeholder": "0-100"})
+	damage 		= IntegerField	('DAMAGE', 		validators=[InputRequired(), NumberRange(min=0, max=420)], render_kw={"placeholder": "0-420"})
+	standing 	= BooleanField	('Standing')	#At least one stance should be checked
 	crouching 	= BooleanField	('Crouching')
 	jumping 	= BooleanField	('Jumping')
-	midscreen 	= BooleanField	('Midscreen')
+	midscreen 	= BooleanField	('Midscreen') #At least one spacing should be checked
 	nearcorner 	= BooleanField	('Nearcorner')
 	corner 		= BooleanField	('Corner')
 	comment 	= TextAreaField	('COMMENT', 	validators=[Length(max=2000)], widget=TextArea())
 	videolink 	= StringField	('VIDEO LINK',	validators=[Length(max=200)], render_kw={"placeholder":"https://... (youtube, twitter, streamable)", "type":"url"})
 	submit 		= SubmitField	('Submit combo!')
 
-	sol 	= BooleanField('Sol')
+	sol 	= BooleanField('Sol') #At least one character should be checked
 	ky 		= BooleanField('Ky')
 	may 	= BooleanField('May')
 	millia 	= BooleanField('Millia')

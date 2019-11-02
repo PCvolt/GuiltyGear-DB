@@ -1,8 +1,9 @@
 from flask import render_template, url_for, redirect, flash
 from ggdb import app, db, bcrypt
-from ggdb.models import Combo
 from ggdb.forms import ComboForm
+from ggdb.models import Combo
 
+"""
 combos = [
 	{
 		'character': 'sin',
@@ -101,10 +102,12 @@ combos = [
 		'twitter_video': 'https://twitter.com/nyphi7/status/1174728068629508096'
 	},
 ]
-
+"""
 
 @app.route('/')
 def index():
+	combos = Combo.query.all()
+
 	return render_template('index.html', posts=combos)
 
 @app.route('/submit', methods=['GET', 'POST'])
@@ -126,5 +129,6 @@ def submit():
 		db.session.commit()
 		flash(f'Combo added : {form.character.data} - {form.combo.data}', 'success')
 		return redirect(url_for('index'))
+
 	return render_template('submit.html', form=form)
 

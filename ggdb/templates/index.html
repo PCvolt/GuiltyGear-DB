@@ -36,17 +36,17 @@
 					</h4>
 				</div>
 				<div class="col-md-4 stances">
-					{% if post.standing == 'true' %}
+					{% if post.standing == 1 %}
 						<img src="{{url_for('static', filename='img/standing.png')}}" alt="Card image" height="60" style="padding: 0rem;">			
 					{% else %}
 						<img src="{{url_for('static', filename='img/not_standing.png')}}" alt="Card image" height="60" style="padding: 0rem;">	
 					{% endif %}
-						{% if post.crouching == 'true' %}
+						{% if post.crouching == 1 %}
 						<img src="{{url_for('static', filename='img/crouching.png')}}" alt="Card image" width="50" style="padding: 0rem;">			
 					{% else %}
 						<img src="{{url_for('static', filename='img/not_crouching.png')}}" alt="Card image" width="50" style="padding: 0rem;">	
 					{% endif %}
-						{% if post.jumping == 'true' %}
+						{% if post.jumping == 1 %}
 						<img src="{{url_for('static', filename='img/jumping.png')}}" alt="Card image" height="60" style="padding: 0rem;">			
 					{% else %}
 						<img src="{{url_for('static', filename='img/not_jumping.png')}}" alt="Card image" height="60" style="padding: 0rem;">	
@@ -54,16 +54,16 @@
 				</div>
 				<div class="col-md-4">
 					<h4 class="text-right">
-					{% if post.midscreen == 'true' and post.nearcorner == 'true' and post.corner == 'true' %}
-						ANYWHERE<br>
+					{% if post.midscreen == 1 and post.nearcorner == 1 and post.corner == 1 %}
+						ANYWHERE<br><br>
 					{% else %}
-						{% if post.midscreen == 'true' %}
+						{% if post.midscreen == 1 %}
 							Midscreen<br>
 						{% endif %}
-						{% if post.nearcorner == 'true' %}
+						{% if post.nearcorner == 1 %}
 							Near corner<br>
 						{% endif %}
-						{% if post.corner == 'true' %}
+						{% if post.corner == 1 %}
 							Corner<br>
 						{% endif %}
 					{% endif %}
@@ -78,7 +78,7 @@
 				</div>
 		</div>
 		<div class="chars_tab text-center" style="display: none;">
-			<div class="thumbnails {{post.characters}}"></div>
+			<div class="thumbnails {{ post.sol }} {{ post.ky }} {{ post.may }} {{ post.millia }} {{ post.zato1 }} {{ post.potemkin }} {{ post.chipp }} {{ post.faust }} {{ post.axl }} {{ post.venom }} {{ post.slayer }} {{ post.ino }} {{ post.bedman }} {{ post.ramlethal }} {{ post.sin }} {{ post.elphelt }} {{ post.leo }} {{ post.johnny }} {{ post.jacko }} {{ post.jam }} {{ post.kum }} {{ post.raven }} {{ post.dizzy }} {{ post.baiken }} {{ post.answer }}"></div>
 		</div>
 		<div class="video_tab" style="display: none;">
 			{% if 0 %}
@@ -132,7 +132,7 @@
 	-> 95 characters max per combo in the combo_tab (overflow: hidden)
 	-> implement video tab
 	-> form for displaying concerned combos (+ reset)
-	-> add a combo submit page
+	-> change jumping (77Kb, 7 times bigger than the other pictures)
 
 	-> minimum width of 480px for flashcards
 
